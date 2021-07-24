@@ -1,0 +1,19 @@
+function [object_image] = create_square(img_dim, sensors, length,height, position)
+% Create a square object
+% Length = columns, height = rows
+% Position is considered as the top left corner
+
+object_image = zeros(img_dim, img_dim);
+
+tl = [position(1), position(2)];
+tr = [position(1), position(2)+length-1];
+bl = [position(1)+height-1, position(2)];
+br = [position(1)+height-1, position(2)+length-1];
+
+object_image(position(1):position(1)+height-1, position(2):position(2)+length-1) = 1;
+
+draw_image(object_image, 3)
+
+
+end
+
